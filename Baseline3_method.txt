@@ -1,0 +1,9 @@
+Method and Rationale:
+Baseline 3 employed in this project is based on MobileNetV2 model. Since the scale of the dataset is not that large, this architecture is able to generalise well attributed to its adaptability of small samples.
+Pretrain and Fine-tune:
+The model used in this baseline is pretrained, but its final fully connected layer is adjusted because there are specifically four categories. Additionally, we adds Dropout regularization to the final layer to further reduce the risk of overfitting, enhancing the model performance on the validation set and the test set.
+Extra details:
+To optimize training, we use an adaptive learning rate scheduler that decreases the learning rate when the validation loss stops improving. This allows the model to continue optimizing at a lower rate, helping it converge to a better solution.
+An early stopping mechanism is also implemented to stop training if the validation loss does not improve over a specified number of epochs, which helps avoid overfitting and reduces training time.
+In this baseline, we use A100 dataset, where AAT dataset is basically used for training and validation, while LAT dataset is specially used for test in order to ensure a more concise prediction
+Moreover, we generates loss and accuracy curves, as well as a confusion matrix, to visualise the results in terms of training, validation and test.
